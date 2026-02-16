@@ -1,0 +1,267 @@
+/* General body styling */
+body {
+    margin: 0;
+    background: #000010;
+    overflow: hidden;
+  }
+  
+  /* Stars background */
+  .stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -1;
+  }
+  
+  .stars::before,
+  .stars::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(white, rgba(255, 255, 255, 0.1) 2%, transparent 2%), radial-gradient(white, rgba(255, 255, 255, 0.1) 2%, transparent 2%);
+    background-size: 50px 50px;
+    animation: starsMove 100s linear infinite;
+    opacity: 0.6;
+  }
+  
+  .stars::after {
+    animation-direction: reverse;
+  }
+  
+  /* Solar system container */
+  .solar-system {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  /* Sun styling */
+  .sun {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #ffdd00, #ff8c00);
+    border-radius: 50%;
+    box-shadow: 0 0 50px #ffd700, 0 0 100px #ff8c00;
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Orbits */
+  .orbit {
+    position: absolute;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: rotate infinite linear;
+  }
+  
+  .mercury-orbit {
+    width: 15vw;
+    height: 15vw;
+    animation-duration: 5s;
+  }
+  
+  .venus-orbit {
+    width: 22vw;
+    height: 22vw;
+    animation-duration: 8s;
+  }
+  
+  .earth-orbit {
+    width: 30vw;
+    height: 30vw;
+    animation-duration: 10s;
+  }
+  
+  .mars-orbit {
+    width: 38vw;
+    height: 38vw;
+    animation-duration: 12s;
+  }
+  
+  .jupiter-orbit {
+    width: 45vw;
+    height: 45vw;
+    animation-duration: 20s;
+  }
+  
+  .saturn-orbit {
+    width: 55vw;
+    height: 55vw;
+    animation-duration: 25s;
+  }
+  
+  .uranus-orbit {
+    width: 65vw;
+    height: 65vw;
+    animation-duration: 30s;
+  }
+  
+  .neptune-orbit {
+    width: 75vw;
+    height: 75vw;
+    animation-duration: 35s;
+  }
+  
+  /* Planets */
+  .planet {
+    width: 1.5vw;
+    height: 1.5vw;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .mercury {
+    background: gray;
+  }
+  
+  .venus {
+    background: orange;
+  }
+  
+  .earth {
+    background: blue;
+  }
+  
+  .mars {
+    background: red;
+  }
+  
+  .jupiter {
+    background: brown;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  .saturn {
+    background: yellow;
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+  
+  .uranus {
+    background: cyan;
+  }
+  
+  .neptune {
+    background: lightblue;
+  }
+  
+  /* Moon Orbit */
+  .moon-orbit {
+    position: absolute;
+    width: 3vw;
+    height: 3vw;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+    animation: moonRotate 2s infinite linear;
+  }
+  
+  .moon {
+    width: 0.5vw;
+    height: 0.5vw;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Animations */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes moonRotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes starsMove {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(50px, 50px);
+    }
+  }
+  
+  /* Media Queries for Mobile Responsiveness */
+  
+  @media only screen and (max-width: 768px) {
+    .solar-system {
+      width: 100vw;
+      height: 100vh;
+    }
+    
+    .sun {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .planet {
+      width: 1vw;
+      height: 1vw;
+    }
+    
+    .jupiter {
+      width: 2vw;
+      height: 2vw;
+    }
+    
+    .saturn {
+      width: 1.5vw;
+      height: 1.5vw;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .solar-system {
+      width: 100vw;
+      height: 100vh;
+    }
+    
+    .sun {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .planet {
+      width: 0.5vw;
+      height: 0.5vw;
+    }
+    
+    .jupiter {
+      width: 1.5vw;
+      height: 1.5vw;
+    }
+    
+    .saturn {
+      width: 1vw;
+      height: 1vw;
+    }
+  }
+  
